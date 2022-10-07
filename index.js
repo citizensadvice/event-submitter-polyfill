@@ -13,10 +13,6 @@
 
   const submitableButton = 'button,input[type="button"],input[type="submit"],input[type="image"]';
 
-  if (Object.getOwnPropertyDescriptor(SubmitEvent.prototype, 'submitter')) {
-    return;
-  }
-
   document.addEventListener(
     'click',
     (e) => lastButton = e.target.closest,
@@ -26,6 +22,10 @@
   document.addEventListener(
     'submit',
     (e) => {
+      console.log('submitter' in e);
+      if ('submitter' in e) {
+        return;
+      }
       Object.defineProperty(
         Object.getPrototypeOf(e),
         'submitter',
