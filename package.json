@@ -1,50 +1,13 @@
 {
-    "name": "event-submitter-polyfill",
-    "version": "0.3.1",
-    "description": "A polyfill for submitter property of form Submit Event, which is written in TypeScript.",
-    "keywords": [
-        "submitter",
-        "submit",
-        "polyfill",
-        "form",
-        "event",
-        "typescript"
-    ],
-    "author": "1101077695@qq.com",
-    "contributors": [
-        "shiy2008@gmail.com"
-    ],
-    "license": "LGPL-3.0",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "source": "source/index.ts",
-    "homepage": "https://github.com/idea2app/event-submitter-polyfill#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/idea2app/event-submitter-polyfill.git"
-    },
-    "bugs": {
-        "url": "https://github.com/idea2app/event-submitter-polyfill/issues"
-    },
-    "devDependencies": {
-        "husky": "^8.0.1",
-        "lint-staged": "^12.4.1",
-        "prettier": "^2.6.2",
-        "typescript": "^4.6.4"
-    },
-    "prettier": {
-        "singleQuote": true,
-        "trailingComma": "none",
-        "arrowParens": "avoid",
-        "tabWidth": 4
-    },
-    "lint-staged": {
-        "*.{md,ts,json}": "prettier --write"
-    },
-    "scripts": {
-        "prepare": "husky install",
-        "test": "lint-staged",
-        "build": "tsc",
-        "prepublishOnly": "npm test  &&  npm run build"
-    }
+  "name": "event-submitter-polyfill",
+  "version": "0.3.1",
+  "private": true,
+  "description": "A polyfill for submitter property of form Submit Event",
+  "author": "1101077695@qq.com",
+  "contributors": [
+    "shiy2008@gmail.com",
+    "github@mrdaniellewis.co.uk"
+  ],
+  "license": "LGPL-3.0",
+  "main": "index.js"
 }
