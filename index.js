@@ -22,22 +22,19 @@
   document.addEventListener(
     'submit',
     (e) => {
-      console.log('submitter' in e);
       if ('submitter' in e) {
         return;
       }
       Object.defineProperty(
-        Object.getPrototypeOf(e),
+        e,
         'submitter',
         {
           configurable: true,
           enumerable: true,
           get() {
             const form = this.target;
-            for (const control of [document.activeElement, lastButton]) {
-              if (control?.matches(submitableButton) && form === control.form) {
-                return control;
-              }
+            if (lastButton?.matches(submitableButton) && form === lastButton.form) {
+              return lastButton;
             }
             return null;
           },
