@@ -15,7 +15,11 @@
 
   document.addEventListener(
     'click',
-    (e) => lastButton = e.target.closest,
+    (e) => {
+      console.log(e.target);
+      lastButton = e.target.closest(submitableButton);
+      console.log(lastButton);
+    },
     { capture: true, passive: true },
   );
 
@@ -25,6 +29,7 @@
       if ('submitter' in e) {
         return;
       }
+      const currentLastButton = lastButton;
       Object.defineProperty(
         e,
         'submitter',
@@ -33,8 +38,8 @@
           enumerable: true,
           get() {
             const form = this.target;
-            if (lastButton?.matches(submitableButton) && form === lastButton.form) {
-              return lastButton;
+            if (currentLastButton?.matches(submitableButton) && form === currentLastButton.form) {
+              return currentLastButton;
             }
             return null;
           },
