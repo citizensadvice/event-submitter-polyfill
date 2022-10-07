@@ -1,0 +1,46 @@
+<!doctype html>
+<script src="index.js"></script>
+
+<form id="form">
+  <fieldset>
+    <legend>Submit buttons</legend>
+    <label>
+      Input
+      <input name="input" type="text">
+    </label>
+
+    <button type="submit">
+      Submit button
+    </button>
+
+    <input type="submit" value="Input submit">
+
+    <input type="image" value="Input image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==">
+
+    <button type="button">
+      Button
+    </button>
+
+    <input type="button" value="Input button">
+  </fieldset>
+</form>
+
+<input type="submit" form="form" value="Button outside of a form">
+
+<form>
+  <fieldset>
+    <legend>Form with no buttons</legend>
+    <label>
+      Input
+      <input name="input" type="text">
+    </label>
+  </fieldset>
+</form>
+
+
+<script>
+  document.addEventListener('submit', (e) => {
+    console.log({ form: e.target, submitter: e.submitter });
+    e.preventDefault();
+  });
+</script>

@@ -9,5 +9,18 @@
     "github@mrdaniellewis.co.uk"
   ],
   "license": "LGPL-3.0",
-  "main": "index.js"
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "es2022": true
+    }
+  }
 }

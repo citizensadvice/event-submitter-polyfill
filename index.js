@@ -8,7 +8,7 @@
  * DL - This has been heavily modified to standard js
  */
 
-function(() => {
+(() => {
   let lastButton;
 
   const submitableButton = 'button,input[type="button"],input[type="submit"],input[type="image"]';
@@ -19,33 +19,37 @@ function(() => {
 
   document.addEventListener(
     'click',
-    (e) => last_button = event.target.closest,
+    (e) => lastButton = e.target.closest,
     { capture: true, passive: true },
   );
 
   document.addEventListener(
     'submit',
     (e) => {
-      Object.defineProperty(Object.getPrototypeOf(event), 'submitter', {
-        configurable: true,
-        enumerable: true,
-        get() {
-          const form = this.target;
-          for (const control of [document.activeElement, last_button]) {
-            if (control?.matches(submitableButton) && form === control.form) {
-              return control;
-            } else {
-              return null;
+      Object.defineProperty(
+        Object.getPrototypeOf(e),
+        'submitter',
+        {
+          configurable: true,
+          enumerable: true,
+          get() {
+            const form = this.target;
+            for (const control of [document.activeElement, lastButton]) {
+              if (control?.matches(submitableButton) && form === control.form) {
+                return control;
+              }
             }
-          }
-        });
+            return null;
+          },
+        },
+      );
     },
     { capture: true, passive: true },
   );
 
   document.addEventListener(
     'submit',
-    () => (last_button = undefined),
+    () => (lastButton = undefined),
   );
-});
+})();
 
