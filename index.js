@@ -16,9 +16,7 @@
   document.addEventListener(
     'click',
     (e) => {
-      console.log(e.target);
       lastButton = e.target.closest(submitableButton);
-      console.log(lastButton);
     },
     { capture: true, passive: true },
   );
